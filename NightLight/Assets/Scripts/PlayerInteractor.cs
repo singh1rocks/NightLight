@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     public float InteractDistance = 2.0f;
+    private Freezer freeze;
     // Start is called before the first frame update
     void Start()
     {
-        
+        freeze = GameObject.Find("freezer").GetComponent<Freezer>();
     }
     
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class PlayerInteractor : MonoBehaviour
             if (doScript != null && Input.GetKeyDown(KeyCode.F))
             {
                 //if player is not frozen
-                if ()
+                
             }
         }
     }
