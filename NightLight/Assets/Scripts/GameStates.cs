@@ -57,14 +57,19 @@ public class GameStates : MonoBehaviour
         switch(currentState)
         {
             case EngineStates.PRELOAD:
+            currentState = EngineStates.SPLASH;
             break;
             case EngineStates.SPLASH:
+            //add a logo here and then
+            //load the title scene. Have something in that trigger EngineStates.Day
+            currentState = EngineStates.TITLE;
             break;
             case EngineStates.TITLE:
             break;
             case EngineStates.DAY:
                 switch(currentDay)
                 {
+                    //load different states in each of these switches.
                     case DayStates.DAY1:
                     break;
                     case DayStates.DAY2:
