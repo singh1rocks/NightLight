@@ -6,7 +6,7 @@ public class TestInteractor : MonoBehaviour , Iinteractable
 {
     public void doPlayerInteraction()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("heeeeey");
     }
 
     // Start is called before the first frame update
