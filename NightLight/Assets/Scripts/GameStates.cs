@@ -62,7 +62,7 @@ public class GameStates : MonoBehaviour
             case EngineStates.TITLE:
             break;
             case EngineStates.DAY:
-                switch(DayStates)
+                switch(currentDay)
                 {
                     case DayStates.DAY1:
                     break;
@@ -79,7 +79,7 @@ public class GameStates : MonoBehaviour
             case EngineStates.NIGHT:
             break;
             case EngineStates.DREAM:
-                switch(DayStates)
+                switch(currentDay)
                 {
                     case DayStates.DAY1:
                     break;
