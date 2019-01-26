@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7a71f889937a468468c807a07dc20e78
 ModelImporter:
   serializedVersion: 23
@@ -16,6 +17,13 @@ ModelImporter:
     3300002: pCylinder2
     4300000: pCylinder1
     4300002: pCylinder2
+=======
+guid: a2bda11a110e6004f988838a8a319383
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    2186277476908879412: ImportLogs
+>>>>>>> 53efee799cee14b0eab3abb4a6f81d0fc917bf03
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -96,7 +104,11 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+<<<<<<< HEAD
   animationType: 0
+=======
+  animationType: 2
+>>>>>>> 53efee799cee14b0eab3abb4a6f81d0fc917bf03
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
