@@ -46,10 +46,11 @@ public class GameStates : MonoBehaviour
     public bool key9Obtained = false;
     public bool key10Obtained = false;
 
-    public void Start()
+    public void Awake()
     {
         currentState = EngineStates.PRELOAD;
         currentDay = DayStates.DAY1;
+        DontDestroyOnLoad(this.gameObject);
     }
     public void Update()
     {
