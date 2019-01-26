@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03ef168fe601b344c9ab3c16c2fa07d5
+guid: 7304e20fd81ced24b939f9ea69dcf3a8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -16,7 +16,6 @@ ModelImporter:
     3300002: pCylinder2
     4300000: pCylinder1
     4300002: pCylinder2
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -69,8 +68,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -97,7 +96,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
