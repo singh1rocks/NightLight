@@ -36,7 +36,7 @@ public class GameStates : MonoBehaviour
     public int warmthCurrent = 10;
     public float dayTimer = 600f;
     public float timerCurrent = 600f;
-    public bool key1Obtained = false;
+    public bool matchesObtained = false;
     public bool key2Obtained = false;
     public bool key3Obtained = false;
     public bool key4Obtained = false;
@@ -49,6 +49,7 @@ public class GameStates : MonoBehaviour
     public float respectsTimer = 1f;
     public bool respectActive = false;
     public GameObject respectReference;
+    public int currentNumberOfConsecutiveDreams = 0;
 
     public bool scene1Loaded = false;
     public bool scene2Loaded = false;
@@ -57,7 +58,9 @@ public class GameStates : MonoBehaviour
     public bool scene5Loaded = false;
     public bool scene6Loaded = false;
     public bool scene7Loaded = false;
-    public bool scene8Loaded = false;    
+    public bool scene8Loaded = false;
+    public bool timerStarted = false;
+    public bool isNight = false;
     public void Awake()
     {
         currentState = EngineStates.PRELOAD;
@@ -82,6 +85,10 @@ public class GameStates : MonoBehaviour
             case EngineStates.DAY:
                 switch(currentDay)
                 {
+                    if(!timerStarted)
+                    {
+                        //do something here
+                    }
                     //load different states in each of these switches.
                     case DayStates.DAY1:
                     if(!scene1Loaded)
@@ -146,7 +153,7 @@ public class GameStates : MonoBehaviour
                 RespectTextt.text = "You pay your respects to the fallen.";
                 RespectTextt.fontSize = Convert.ToInt32(Math.Floor(Camera.main.scaledPixelHeight * 0.05f));
                 RectTransform rect = RespectText.GetComponent<RectTransform>();
-                rect.localPosition = new Vector3(0f,Camera.main.scaledPixelHeight * -0.4f,0f);
+                rect.localPosition = new Vector3(0f,Camera.main.scaledPixelHeight * 0.4f,0f);
                 rect.sizeDelta = new Vector2(Camera.main.scaledPixelWidth * 0.5f, Camera.main.scaledPixelHeight * 0.1f);
 
                 respectReference = Respects;
