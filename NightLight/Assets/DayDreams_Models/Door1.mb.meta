@@ -3,6 +3,35 @@ guid: 025fb09599832a44eb50c2d4077a4355
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: pCube1
+    100004: polySurface1
+    100006: polySurface1 1
+    100008: polySurface2
+    100010: polySurface2 1
+    100012: polySurface3
+    100014: transform1
+    100016: transform2
+    100018: transform3
+    100020: transform4
+    100022: transform5
+    400000: //RootNode
+    400002: pCube1
+    400004: polySurface1
+    400006: polySurface1 1
+    400008: polySurface2
+    400010: polySurface2 1
+    400012: polySurface3
+    400014: transform1
+    400016: transform2
+    400018: transform3
+    400020: transform4
+    400022: transform5
+    2100000: lambert1
+    2300000: polySurface2
+    3300000: polySurface2
+    4300000: polySurface2
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -57,7 +86,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
