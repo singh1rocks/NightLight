@@ -15,8 +15,6 @@ ModelImporter:
     100018: transform7
     100020: transform8
     100022: transform9
-    100024: Desk1:pCube5
-    100026: Desk1:pCube6
     400000: //RootNode
     400002: pCube2
     400004: pCube3
@@ -29,25 +27,16 @@ ModelImporter:
     400018: transform7
     400020: transform8
     400022: transform9
-    400024: Desk1:pCube5
-    400026: Desk1:pCube6
     2100000: lambert1
-    2100002: lambert4
     2300000: pCube5
     2300002: pCube6
     2300004: polySurface5
-    2300006: Desk1:pCube5
-    2300008: Desk1:pCube6
     3300000: pCube5
     3300002: pCube6
     3300004: polySurface5
-    3300006: Desk1:pCube5
-    3300008: Desk1:pCube6
     4300000: polySurface5
     4300002: pCube5
     4300004: pCube6
-    4300006: Desk1:pCube5
-    4300008: Desk1:pCube6
   externalObjects: {}
   materials:
     importMaterials: 1
