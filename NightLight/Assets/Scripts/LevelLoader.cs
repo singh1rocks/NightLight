@@ -95,6 +95,29 @@ public class LevelLoader : MonoBehaviour
     public void CompleteLevel()
     {
 
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Day0Dream":
+                currentSceneIndex = 0;
+                break;
+            case "Day1":
+                currentSceneIndex = 1;
+                break;
+            case "Day1Dream":
+                
+                currentSceneIndex = 2;
+                break;
+            case "Day2":
+                currentSceneIndex = 3;
+                break;
+            case "Day2Dream":
+                currentSceneIndex = 4;
+                break;
+            case "Day3":
+                currentSceneIndex = 5;
+                break;
+        }
+
         scenes[currentSceneIndex].solve();
     }
 }
