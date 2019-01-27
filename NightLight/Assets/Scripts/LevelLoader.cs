@@ -91,15 +91,7 @@ public class LevelLoader : MonoBehaviour
                 currentSceneIndex = 5;
                 break;
             case "Day3":
-                if (scenes[5].solved)
-                {
-                    SceneManager.LoadScene("CreditScene");
-                }
-                else
-                {
-                    SceneManager.LoadScene("Day2Dream");
-                    currentSceneIndex = 4;
-                }
+                SceneManager.LoadScene("CreditScene");
                 break;
         }
     }
