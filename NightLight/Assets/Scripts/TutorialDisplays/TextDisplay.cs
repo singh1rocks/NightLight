@@ -31,7 +31,6 @@ public class TextDisplay : MonoBehaviour
     IEnumerator AnimateText(string textToPut, float duration)
     {
         string currentText = "";
-        Debug.Log(textToPut);
         TextToPut = textToPut;
         int i = 0;
 
