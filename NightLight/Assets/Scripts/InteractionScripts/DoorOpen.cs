@@ -30,15 +30,17 @@ public class DoorOpen : MonoBehaviour, Iinteractable
 
     public void doPlayerInteraction()
     {
-        if (PlayerInventory["Day1Key"])
+        if (DoorCanOpen == true)
+        {
+            StartCoroutine(DoorOpenDuringTime());
+            isOpened = true;
+        }
+        else if (PlayerInventory["Day1Key"])
         {
             if (!isOpened)
                 StartCoroutine(DoorOpenDuringTime());
             else
                 StartCoroutine(DoorCloseDuringTime());
-        }
-        else if(DoorCanOpen == true){
-            StartCoroutine(DoorOpenDuringTime());
         }
         else
         {
