@@ -12,6 +12,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     AudioSource AS;
     public bool DoorCanOpen;
     public bool isOpened;
+    private static bool hasSaidThing;
     void Start()
     {
         VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
@@ -31,19 +32,29 @@ public class DoorOpen : MonoBehaviour, Iinteractable
 
     public void doPlayerInteraction()
     {
+        
+
         if (DoorCanOpen == true)
         {
             AS.Play();
             StartCoroutine(DoorOpenDuringTime());
             isOpened = true;
+            if (!hasSaidThing)
+            {
+                VC.PlayVoice(VC.FreezingClip);
+                hasSaidThing = true;
+            }
         }
         else if (PlayerInventory["Day1Key"])
         {
             AS.Play();
-
-            if (!isOpened)
+            if (!hasSaidThing)
             {
                 VC.PlayVoice(VC.FreezingClip);
+                hasSaidThing = true;
+            }
+            if (!isOpened)
+            {
                 StartCoroutine(DoorOpenDuringTime());
             }
             else
@@ -52,10 +63,13 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         else if (PlayerInventory["Day2Key"])
         {
             AS.Play();
-
-            if (!isOpened)
+            if (!hasSaidThing)
             {
                 VC.PlayVoice(VC.FreezingClip);
+                hasSaidThing = true;
+            }
+            if (!isOpened)
+            {
                 StartCoroutine(DoorOpenDuringTime());
 
             }
@@ -65,7 +79,11 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         else if (PlayerInventory["Day2DreamKey"])
         {
             AS.Play();
-
+            if (!hasSaidThing)
+            {
+                VC.PlayVoice(VC.FreezingClip);
+                hasSaidThing = true;
+            }
             if (!isOpened)
             {
                 VC.PlayVoice(VC.FreezingClip);
