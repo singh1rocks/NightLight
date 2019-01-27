@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
+
 
 public class Scene
 {
@@ -19,7 +21,6 @@ public class Scene
         solved = true;
     }
 }
-
 
 public class LevelLoader : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class LevelLoader : MonoBehaviour
             case "Day0Dream":
                 //load Day1
                 SceneManager.LoadScene("Day1");
+                Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
                 currentSceneIndex = 1;
                 break;
             case "Day1":
@@ -55,6 +57,7 @@ public class LevelLoader : MonoBehaviour
                 {
                     SceneManager.LoadScene("Day1Dream");
                     currentSceneIndex = 2;
+                    Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
                 }
                 else
                 {
