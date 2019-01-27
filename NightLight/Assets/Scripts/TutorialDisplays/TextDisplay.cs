@@ -24,7 +24,7 @@ public class TextDisplay : MonoBehaviour
     {
         //Debug.Log(textToPut);
         //StopCoroutine(AnimateText(textToPut, duration));
-
+        
         StartCoroutine(AnimateText(textToPut, duration));
         ShowEverything();
     }
