@@ -25,7 +25,7 @@ public class PlayerInteractor : MonoBehaviour
             if (doScript != null && Input.GetKeyDown(KeyCode.F))
             {
                 //if player is not frozen
-                if (!freeze.isDead)
+                if (freeze != null && !freeze.isDead)
                     doScript.doPlayerInteraction();
             }
         }

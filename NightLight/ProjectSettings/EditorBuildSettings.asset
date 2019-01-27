@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: 4017dc6ef2a3912438ecb11d1360e620
+  - enabled: 1
+    path: Assets/Scenes/Day0Dream.unity
+    guid: d0e022f123d70db48a12cc81d7289b5c
+  - enabled: 1
+    path: Assets/Scenes/Day1.unity
+    guid: ce8dbdb75ee52eb49a5eb228decd9718
+  - enabled: 1
+    path: Assets/Scenes/Day1Dream.unity
+    guid: cc64349398823a740a4db7fcd698c0b2
+  - enabled: 1
+    path: Assets/Scenes/Day2.unity
+    guid: 6f37edd132fd7004a8e426f3823127ca
+  - enabled: 1
+    path: Assets/Scenes/Day2Dream.unity
+    guid: 2e6f0b136e7d4ec4c820653f40523c2d
   m_configObjects: {}
