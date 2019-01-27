@@ -636,6 +636,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7932919384578334730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7666306638152089369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f85f835a29f37d4f81e7aff08151d84, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  ActualDoor: {fileID: 1096679429650100314}
+  DoorCanOpen: 0
 --- !u!65 &7666306638152089370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -659,7 +673,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 616b7f0322258014e81db49741c09d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   ActualDoor: {fileID: 1096679429650100314}
   CombBox: {fileID: 0}

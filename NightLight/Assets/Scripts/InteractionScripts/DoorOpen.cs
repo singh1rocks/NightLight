@@ -9,7 +9,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
-    bool isOpened = false;
+    public bool DoorCanOpen;
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
@@ -22,7 +22,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -35,6 +35,9 @@ public class DoorOpen : MonoBehaviour, Iinteractable
                 StartCoroutine(DoorOpenDuringTime());
             else
                 StartCoroutine(DoorCloseDuringTime());
+        }
+        else if(DoorCanOpen == true){
+            StartCoroutine(DoorOpenDuringTime());
         }
         else
         {
