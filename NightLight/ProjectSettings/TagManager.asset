@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - RoomFloor
+  - TextDisplay
+  - CombinationBox
   layers:
   - Default
   - TransparentFX

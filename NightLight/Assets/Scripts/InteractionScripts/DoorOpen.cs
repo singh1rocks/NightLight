@@ -9,6 +9,8 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
+    public bool DoorCanOpen;
+    bool isOpened;
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
@@ -21,16 +23,31 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
 
     public void doPlayerInteraction()
     {
-        if(PlayerInventory["Day1Key"])
+        if (DoorCanOpen == true)
         {
             StartCoroutine(DoorOpenDuringTime());
+            isOpened = true;
+        }
+        else if (PlayerInventory["Day1Key"])
+        {
+            if (!isOpened)
+                StartCoroutine(DoorOpenDuringTime());
+            else
+                StartCoroutine(DoorCloseDuringTime());
+        }
+        else if (PlayerInventory["Day2Key"])
+        {
+            if (!isOpened)
+                StartCoroutine(DoorOpenDuringTime());
+            else
+                StartCoroutine(DoorCloseDuringTime());
         }
         else
         {
@@ -46,6 +63,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
             ActualDoor.transform.Rotate(new Vector3(0.0f, 5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
+        isOpened = true;
     }
     IEnumerator DoorCloseDuringTime()
     {
@@ -54,5 +72,6 @@ public class DoorOpen : MonoBehaviour, Iinteractable
             ActualDoor.transform.Rotate(new Vector3(0.0f, -5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
+        isOpened = false;
     }
 }
