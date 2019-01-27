@@ -11,7 +11,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     VoiceController VC;
     AudioSource AS;
     public bool DoorCanOpen;
-    bool isOpened;
+    public bool isOpened;
     void Start()
     {
         VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
@@ -40,16 +40,37 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         else if (PlayerInventory["Day1Key"])
         {
             AS.Play();
+
             if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
                 StartCoroutine(DoorOpenDuringTime());
+            }
             else
                 StartCoroutine(DoorCloseDuringTime());
         }
         else if (PlayerInventory["Day2Key"])
         {
             AS.Play();
+
             if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
                 StartCoroutine(DoorOpenDuringTime());
+
+            }
+            else
+                StartCoroutine(DoorCloseDuringTime());
+        }
+        else if (PlayerInventory["Day2DreamKey"])
+        {
+            AS.Play();
+
+            if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
+                StartCoroutine(DoorOpenDuringTime());
+            }
             else
                 StartCoroutine(DoorCloseDuringTime());
         }
@@ -63,20 +84,22 @@ public class DoorOpen : MonoBehaviour, Iinteractable
 
     IEnumerator DoorOpenDuringTime()
     {
+        isOpened = true;
         for (float angle = 0.0f; angle < 120.0f; angle += 5.0f)
         {
             ActualDoor.transform.Rotate(new Vector3(0.0f, 5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
-        isOpened = true;
+        
     }
     IEnumerator DoorCloseDuringTime()
     {
+        isOpened = false;
+
         for (float angle = 0.0f; angle < 120.0f; angle += 5.0f)
         {
             ActualDoor.transform.Rotate(new Vector3(0.0f, -5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
-        isOpened = false;
     }
 }
