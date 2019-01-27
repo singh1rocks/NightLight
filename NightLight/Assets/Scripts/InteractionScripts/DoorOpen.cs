@@ -12,7 +12,8 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
-        PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
+        //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
+        PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
     }
 
     // Update is called once per frame

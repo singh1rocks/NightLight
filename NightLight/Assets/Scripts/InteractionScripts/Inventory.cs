@@ -6,9 +6,12 @@ public class Inventory : MonoBehaviour
 {
     public Dictionary<string, bool> PlayerItems;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         PlayerItems = new Dictionary<string, bool>();
+    }
+    void Start()
+    {
         PlayerItems.Add("Day1Key", false);
         PlayerItems.Add("Day1MatchBox", false);
     }
