@@ -48,6 +48,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
                 StartCoroutine(DoorOpenDuringTime());
             else
                 StartCoroutine(DoorCloseDuringTime());
+        }
         else
         {
             //Debug.Log("asd");
