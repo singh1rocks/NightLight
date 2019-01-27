@@ -8,13 +8,13 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     [SerializeField]
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
-    TextDisplay txtDisplay;
+    VoiceController VC;
     AudioSource AS;
     public bool DoorCanOpen;
     bool isOpened;
     void Start()
     {
-        txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
         //StartCoroutine(DoorOpenDuringTime());
@@ -56,7 +56,8 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         else
         {
             //Debug.Log("asd");
-            txtDisplay.DisplayText("I need a key to open this door.");
+            //txtDisplay.DisplayText("I need a key to open this door.");
+            VC.PlayVoice(VC.NeedAKeyClip);
         }
     }
 

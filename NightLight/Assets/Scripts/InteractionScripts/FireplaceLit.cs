@@ -8,6 +8,7 @@ public class FireplaceLit : MonoBehaviour, Iinteractable
     GameObject FireParticle;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
+    VoiceController VC;
     AudioSource AS;
     void Start()
     {
@@ -15,6 +16,7 @@ public class FireplaceLit : MonoBehaviour, Iinteractable
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
         AS = gameObject.GetComponent<AudioSource>();
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
     }
     public void doPlayerInteraction()
     {
@@ -22,12 +24,14 @@ public class FireplaceLit : MonoBehaviour, Iinteractable
         {
             FireParticle.GetComponent<ParticleSystem>().Play();
             AS.Play();
-            txtDisplay.DisplayText("Warmth, I think that's all I need right now...");
+            VC.PlayVoice(VC.SaveFromColdClip);
+            //txtDisplay.DisplayText("Warmth, I think that's all I need right now...");
             LevelLoader ll = GameObject.Find("gameManager").GetComponent<LevelLoader>();
             ll.CompleteLevel();
         }
         else
-            txtDisplay.DisplayText("I need something to light the fireplace...");
+            VC.PlayVoice(VC.FireplaceClip);
+            //txtDisplay.DisplayText("I need something to light the fireplace...");
     }
 
     // Update is called once per frame
