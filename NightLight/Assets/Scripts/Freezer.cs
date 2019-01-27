@@ -7,11 +7,11 @@ public class Freezer : MonoBehaviour
 {
     public static float coldAmount { get; private set; }
     public bool isDead { get; private set; }
-    public float dayCold = .1f;
-    public float nightCold = .5f;
-    public float warmAmount = .1f;
+    public float dayCold = .01f;
+    public float nightCold = .05f;
+    public float warmAmount = .01f;
     public bool deathOn = true;
-    public float frostInterval = 5;
+    public float frostInterval = 2;
 
     private bool inRoom;
     private Camera mainCamera;

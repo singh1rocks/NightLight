@@ -9,11 +9,11 @@ public class DayNightClock : MonoBehaviour
     /// 0 is dawn and 100 is the end of the night. 
     /// The transistion from day to night is determined by the dayNightRatio.
     /// </summary>
-    public int timeOfDay;
+    public int timeOfDay = 0;
     public bool isDay = true;
     //The ratio of day/night. The same as "percent of time is day time"
-    public double dayNightRatio = .5;
-    public int secondsPerCycle = 360;
+    public float dayNightRatio = .5f;
+    public float secondsPerCycle = 360f;
     void Awake()
     {
         //Don't destroy when loading a new Scene
@@ -22,14 +22,14 @@ public class DayNightClock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeOfDay = ((int) Time.timeSinceLevelLoad * (100/secondsPerCycle))%100;
-        
+        timeOfDay = (int)(Time.timeSinceLevelLoad * (100f / secondsPerCycle) % 100);
+
         if (timeOfDay <= dayNightRatio * 100)
         {
             isDay = true;
@@ -43,11 +43,11 @@ public class DayNightClock : MonoBehaviour
     /// Returns seconds until dusk or zero if it is night time
     /// </summary>
     /// <returns></returns>
-    public int GetSecondsTillDusk()
+    public float GetSecondsTillDusk()
     {
         if (isDay)
         {
-            return (int)((dayNightRatio * 100) - timeOfDay) * (secondsPerCycle/100);
+            return ((dayNightRatio * 100f) - (float)timeOfDay) * (secondsPerCycle / 100f);
         }
         else
         {
@@ -58,7 +58,7 @@ public class DayNightClock : MonoBehaviour
     /// Returns seconds until dawn or zero if it is day time
     /// </summary>
     /// <returns></returns>
-    public int GetSecondsTillDawn()
+    public float GetSecondsTillDawn()
     {
         if (!isDay)
         {
