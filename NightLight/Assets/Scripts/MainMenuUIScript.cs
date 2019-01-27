@@ -60,8 +60,8 @@ public class MainMenuUIScript : MonoBehaviour
         StartParent.transform.parent = Background.transform;
         StartButton.transition = Button.Transition.SpriteSwap;
         StartButton.spriteState = buttonSprites;
-        StartParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.12f);
-        StartParent.GetComponent<RectTransform>().localPosition = new Vector3(0f, refcam.scaledPixelHeight * -0.05f, 0f);
+        StartParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.15f);
+        StartParent.GetComponent<RectTransform>().localPosition = new Vector3(refcam.scaledPixelWidth * -0.25f, refcam.scaledPixelHeight * -0.21f, 0f);
 
 
         GameObject CreditsParent = new GameObject();
@@ -76,7 +76,7 @@ public class MainMenuUIScript : MonoBehaviour
         CreditsButton.onClick.AddListener(LoadCredits);
         CreditsButton.transition = Button.Transition.SpriteSwap;
         CreditsButton.spriteState = buttonSprites;
-        CreditsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.12f);
+        CreditsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.15f);
         CreditsParent.GetComponent<RectTransform>().localPosition = new Vector3(0f, refcam.scaledPixelHeight * -0.21f, 0f);
 
 
@@ -93,8 +93,8 @@ public class MainMenuUIScript : MonoBehaviour
         ExitButton.onClick.AddListener(Exit);
         ExitButton.transition = Button.Transition.SpriteSwap;
         ExitButton.spriteState = buttonSprites;
-        ExitParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.12f);
-        ExitParent.GetComponent<RectTransform>().localPosition = new Vector3(0f, refcam.scaledPixelHeight * -0.37f, 0f);
+        ExitParent.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.20f, refcam.scaledPixelHeight * 0.15f);
+        ExitParent.GetComponent<RectTransform>().localPosition = new Vector3(refcam.scaledPixelWidth * 0.25f, refcam.scaledPixelHeight * -0.21f, 0f);
 
         for(int i=0;i<6;i++)
         {
@@ -134,21 +134,21 @@ public class MainMenuUIScript : MonoBehaviour
                     ButtonText.transform.parent = StartParent.transform;
                     BText.text = "Start";
                     StartTextHighlight = ButtonText;
-                    ButtonText.SetActive(false);
+                    //ButtonText.SetActive(false);
                 }
                 else if(i/2 == 1)
                 {
                     ButtonText.transform.parent = CreditsParent.transform;
                     BText.text = "Credits";
                     CreditsTextHighlight = ButtonText;
-                    ButtonText.SetActive(false);
+                    //ButtonText.SetActive(false);
                 }
                 else if(i/2 == 2)
                 {
                     ButtonText.transform.parent = ExitParent.transform;
                     BText.text = "Exit";
                     ExitTextHighlight = ButtonText;
-                    ButtonText.SetActive(false);
+                    //ButtonText.SetActive(false);
                 }
                 BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.05f));
             }
@@ -175,7 +175,7 @@ public class MainMenuUIScript : MonoBehaviour
         TText.text = "DAY DREAM";
         TText.alignment = TextAnchor.MiddleCenter;
         TitleText.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.5f, refcam.scaledPixelHeight * 0.3f); 
-        TitleText.GetComponent<RectTransform>().localPosition = new Vector3(0f,refcam.scaledPixelHeight * 0.08f,0f);
+        TitleText.GetComponent<RectTransform>().localPosition = new Vector3(0f,refcam.scaledPixelHeight * 0.02f,0f);
         //setActiveButton(false, false, false);
 
         GameObject CopyrightInfo = new GameObject();
@@ -185,7 +185,7 @@ public class MainMenuUIScript : MonoBehaviour
         CText.text = "© 2019 Team Night Light\nMade for EAE Global Game Jam 2019.";
         CText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.03f));
         CopyrightInfo.GetComponent<RectTransform>().sizeDelta = new Vector2(refcam.scaledPixelWidth * 0.5f, refcam.scaledPixelHeight * 0.15f); 
-        CopyrightInfo.GetComponent<RectTransform>().localPosition = new Vector3(refcam.scaledPixelWidth * -.25f,refcam.scaledPixelHeight * -0.45f,0f);
+        CopyrightInfo.GetComponent<RectTransform>().localPosition = new Vector3(refcam.scaledPixelWidth * -.24f,refcam.scaledPixelHeight * -0.47f,0f);
     }
 
     private void Exit()
@@ -203,7 +203,6 @@ public class MainMenuUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void LoadFirstScene()
@@ -229,8 +228,8 @@ public class MainMenuUIScript : MonoBehaviour
         Background.GetComponent<RectTransform>().localPosition = new Vector3(0f,0f,0f);
         
         GameObject Background2 = new GameObject();
-        Background.transform.parent = CreditsObject.transform;
-        Image refImage2 = Background.AddComponent<Image>();
+        Background2.transform.parent = Background.transform;
+        Image refImage2 = Background2.AddComponent<Image>();
         refImage2.sprite = Resources.Load<Sprite>("Sprites/CREDITSS");
         refImage2.type = Image.Type.Simple;
         refImage2.preserveAspect = true;
@@ -238,11 +237,38 @@ public class MainMenuUIScript : MonoBehaviour
         Background2.GetComponent<RectTransform>().localPosition = new Vector3(0f,0f,0f);
 
         GameObject BackButton = new GameObject();
+        BackButton.transform.parent = Background2.transform;
         Image BBImage = BackButton.AddComponent<Image>();
         BBImage.sprite = Resources.Load<Sprite>("Sprites/ButtonNotSelected");
+        Button BBButton = BackButton.AddComponent<Button>();
+                BBButton.transition = Button.Transition.SpriteSwap;
+        BBButton.spriteState = buttonSprites;
+
+        GameObject ButtonText = new GameObject();
+        ButtonText.transform.parent = BackButton.transform;
+        Text BText = ButtonText.AddComponent<Text>();
+        BText.font = Resources.Load<Font>("Fonts/SourceSansPro-Light");
+        BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.05f));
+        BText.alignment = TextAnchor.MiddleCenter;
+        BText.text = "Back";
+        BText.color = Color.white;
+        RectTransform buttonRect = BackButton.GetComponent<RectTransform>();
+        buttonRect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
+        buttonRect.localPosition = new Vector3(refcam.scaledPixelWidth * 0.3f, refcam.scaledPixelHeight * -0.35f, 0f);
+
+        RectTransform rect = ButtonText.GetComponent<RectTransform>();
+        rect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
+        rect.localPosition = new Vector3(0f, 0f, 0f);
+
+        BBButton.onClick.AddListener(destroyCredits);
 
 
 
+    }
+
+    public void destroyCredits()
+    {
+        Destroy(CreditsObjectReference);
     }
 
     public GameObject UIAnnoyances()
