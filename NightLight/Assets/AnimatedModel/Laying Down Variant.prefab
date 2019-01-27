@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 437011943}
   - component: {fileID: 449505479}
   - component: {fileID: 438076199}
+  - component: {fileID: 9180876905111098025}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -114,6 +115,19 @@ MonoBehaviour:
   Frost: {fileID: 2800000, guid: 210743b88c99bcf45b28c3a4a4a3e178, type: 3}
   FrostNormals: {fileID: 2800000, guid: 065247d136abaa042a330ab6a7b030fc, type: 3}
   Shader: {fileID: 4800000, guid: db8aebe950ae3794aae5ed890f38549b, type: 3}
+--- !u!114 &9180876905111098025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447805127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 3373351514fef1347aa58370229a89ce, type: 2}
 --- !u!1 &958990418
 GameObject:
   m_ObjectHideFlags: 0
