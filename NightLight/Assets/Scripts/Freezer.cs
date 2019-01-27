@@ -39,7 +39,7 @@ public class Freezer : MonoBehaviour
             lastTime = clock.timeOfDay;
             if (inRoom)
             {
-                if (clock.isDay && frost.FrostAmount > 0 )
+                if (clock.isDay && frost.FrostAmount > 0)
                 {
 
                     coldAmount += warmAmount;
@@ -51,15 +51,19 @@ public class Freezer : MonoBehaviour
             }
             else
             {
-                if (!clock.isDay)
                 {
-                    coldAmount -= nightCold;
-                    frost.FrostAmount += nightCold;
-                }
-                else
-                {
-                    coldAmount -= dayCold;
-                    frost.FrostAmount += dayCold;
+                    if (!clock.isDay)
+                    {
+                        coldAmount -= nightCold;
+                        if (frost.FrostAmount < .4f)
+                            frost.FrostAmount += nightCold;
+                    }
+                    else
+                    {
+                        coldAmount -= dayCold;
+                        if (frost.FrostAmount < .4f)
+                            frost.FrostAmount += dayCold;
+                    }
                 }
             }
         }
