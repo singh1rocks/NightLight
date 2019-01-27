@@ -65,6 +65,8 @@ public class LevelLoader : MonoBehaviour
                 {
                     SceneManager.LoadScene("Day0Dream");
                     currentSceneIndex = 0;
+                    Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
+                    Camera.main.fieldOfView = 130;
                 }
                 break;
             case "Day1Dream":
