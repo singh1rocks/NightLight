@@ -65,7 +65,7 @@ public class Freezer : MonoBehaviour
         {
             if (deathOn)
             {
-                Scene currentScene = SceneManager.GetActiveScene();
+                UnityEngine.SceneManagement.Scene currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }
             else
