@@ -9,6 +9,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
+    AudioSource AS;
     public bool DoorCanOpen;
     bool isOpened;
     void Start()
@@ -17,7 +18,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
         //StartCoroutine(DoorOpenDuringTime());
-
+        AS = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,11 +33,13 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     {
         if (DoorCanOpen == true)
         {
+            AS.Play();
             StartCoroutine(DoorOpenDuringTime());
             isOpened = true;
         }
         else if (PlayerInventory["Day1Key"])
         {
+            AS.Play();
             if (!isOpened)
                 StartCoroutine(DoorOpenDuringTime());
             else
@@ -44,6 +47,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         }
         else if (PlayerInventory["Day2Key"])
         {
+            AS.Play();
             if (!isOpened)
                 StartCoroutine(DoorOpenDuringTime());
             else

@@ -8,17 +8,20 @@ public class FireplaceLit : MonoBehaviour, Iinteractable
     GameObject FireParticle;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
+    AudioSource AS;
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
+        AS = gameObject.GetComponent<AudioSource>();
     }
     public void doPlayerInteraction()
     {
         if (PlayerInventory["Day1MatchBox"])
         {
             FireParticle.GetComponent<ParticleSystem>().Play();
+            AS.Play();
             txtDisplay.DisplayText("Warmth, I think that's all I need right now...");
             LevelLoader ll = GameObject.Find("gameManager").GetComponent<LevelLoader>();
             ll.CompleteLevel();

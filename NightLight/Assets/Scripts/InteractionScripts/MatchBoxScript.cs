@@ -21,6 +21,7 @@ public class MatchBoxScript : MonoBehaviour, Iinteractable
     }
     public void doPlayerInteraction()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         PlayerInventory["Day1MatchBox"] = true;
         txtDisplay.DisplayText("A Match box. Cool, maybe I can light the fireplace now...");
         gameObject.SetActive(false);
