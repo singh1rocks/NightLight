@@ -13,6 +13,7 @@ public class MainMenuUIScript : MonoBehaviour
     GameObject GameManager;
     Camera refcam;
     Vector3 screenCenter;
+    GameObject StartButtonReference;
     Button StartButton;
     Button CreditsButton;
     Button ExitButton;
@@ -48,6 +49,7 @@ public class MainMenuUIScript : MonoBehaviour
         buttonSprites.pressedSprite = Resources.Load<Sprite>("Sprites/ButtonNotSelected");
 
         GameObject StartParent = new GameObject();
+        StartButtonReference = StartParent;
         Image startImage = StartParent.AddComponent<Image>();
         startImage.sprite = Resources.Load<Sprite>("Sprites/ButtonNotSelected");
         startImage.type = Image.Type.Sliced;
@@ -134,7 +136,7 @@ public class MainMenuUIScript : MonoBehaviour
                     ButtonText.transform.parent = StartParent.transform;
                     BText.text = "Start";
                     StartTextHighlight = ButtonText;
-                    //ButtonText.SetActive(false);
+                    //StartTextHighlight.SetActive(false);
                 }
                 else if(i/2 == 1)
                 {
@@ -244,21 +246,33 @@ public class MainMenuUIScript : MonoBehaviour
                 BBButton.transition = Button.Transition.SpriteSwap;
         BBButton.spriteState = buttonSprites;
 
-        GameObject ButtonText = new GameObject();
-        ButtonText.transform.parent = BackButton.transform;
-        Text BText = ButtonText.AddComponent<Text>();
-        BText.font = Resources.Load<Font>("Fonts/SourceSansPro-Light");
-        BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.05f));
-        BText.alignment = TextAnchor.MiddleCenter;
-        BText.text = "Back";
-        BText.color = Color.white;
-        RectTransform buttonRect = BackButton.GetComponent<RectTransform>();
-        buttonRect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
-        buttonRect.localPosition = new Vector3(refcam.scaledPixelWidth * 0.3f, refcam.scaledPixelHeight * -0.35f, 0f);
+        for(int i = 0; i < 2; i++)
+        {
+            GameObject ButtonText = new GameObject();
+            ButtonText.transform.parent = BackButton.transform;
+            Text BText = ButtonText.AddComponent<Text>();
+           BText.font = Resources.Load<Font>("Fonts/SourceSansPro-Light");
+            //BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.05f));
+            BText.alignment = TextAnchor.MiddleCenter;
+            BText.text = "Back";
+            if(i == 0)
+            {
+                    BText.color = Color.white;
+                    BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.06f));
+            }
+            else
+            {
+                    BText.color = Color.black;
+                    BText.fontSize = Convert.ToInt32(Math.Floor(refcam.scaledPixelHeight * 0.05f));
+            }
+            RectTransform buttonRect = BackButton.GetComponent<RectTransform>();
+            buttonRect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
+            buttonRect.localPosition = new Vector3(refcam.scaledPixelWidth * 0.3f, refcam.scaledPixelHeight * -0.35f, 0f);
 
-        RectTransform rect = ButtonText.GetComponent<RectTransform>();
-        rect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
-        rect.localPosition = new Vector3(0f, 0f, 0f);
+            RectTransform rect = ButtonText.GetComponent<RectTransform>();
+            rect.sizeDelta = CreditsButton.GetComponent<RectTransform>().sizeDelta;
+            rect.localPosition = new Vector3(0f, 0f, 0f);
+        }
 
         BBButton.onClick.AddListener(destroyCredits);
 
@@ -284,23 +298,12 @@ public class MainMenuUIScript : MonoBehaviour
 
         return UITrash;
     }
-    public void OnPointerEnter(PointerEventData eventData)
+
+    void OnMouseOver()
     {
-        if(eventData.selectedObject == StartButton )
+        if(Startt)
         {
-            setActiveButton(true, false, false);
-        }
-        else if(eventData.selectedObject == CreditsButton)
-        {
-            setActiveButton(false, true, false);
-        }
-        else if(eventData.selectedObject == ExitButton)
-        {
-            setActiveButton(false, false, true);
-        }
-        else
-        {
-            //setActiveButton(false, false, false);
+            StartTextHighlight.SetActive(true);
         }
     }
 }
