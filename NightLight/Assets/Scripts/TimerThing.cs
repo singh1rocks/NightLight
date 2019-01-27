@@ -55,9 +55,9 @@ public class TimerThing : MonoBehaviour
     {
         if(timerCurrent <= 300f)
         {
-            if(refcam.fieldOfView < 160f)
+            if(refcam.fieldOfView < 140f)
             {
-                refcam.fieldOfView += Time.deltaTime * 3.0f;
+                refcam.fieldOfView  = 110f;
             }
             if(refcam.fieldOfView > 80f)
             {
