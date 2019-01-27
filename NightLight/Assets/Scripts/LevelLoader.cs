@@ -85,7 +85,7 @@ public class LevelLoader : MonoBehaviour
             case "Day3":
                 if (scenes[5].solved)
                 {
-                    SceneManager.LoadScene("credits");
+                    SceneManager.LoadScene("CreditScene");
                 }
                 else
                 {
