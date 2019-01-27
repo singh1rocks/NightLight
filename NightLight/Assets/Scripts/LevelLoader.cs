@@ -50,6 +50,7 @@ public class LevelLoader : MonoBehaviour
                 //load Day1
                 SceneManager.LoadScene("Day1");
                 Camera.main.GetComponent<PostProcessingBehaviour>().enabled = false;
+                Camera.main.fieldOfView = 80;
                 currentSceneIndex = 1;
                 break;
             case "Day1":
@@ -58,6 +59,7 @@ public class LevelLoader : MonoBehaviour
                     SceneManager.LoadScene("Day1Dream");
                     currentSceneIndex = 2;
                     Camera.main.GetComponent<PostProcessingBehaviour>().enabled = true;
+                    Camera.main.fieldOfView = 130;
                 }
                 else
                 {
@@ -67,6 +69,7 @@ public class LevelLoader : MonoBehaviour
                 break;
             case "Day1Dream":
                 SceneManager.LoadScene("Day2");
+                Camera.main.fieldOfView = 80;
                 currentSceneIndex = 3;
                 break;
             case "Day2":
