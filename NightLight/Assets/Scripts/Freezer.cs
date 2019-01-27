@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Freezer : MonoBehaviour
 {
-    public static float coldAmount { get; private set; }
-    public bool isDead { get; private set; }
+    public float coldAmount = 20f;
+    public bool isDead;
     public float dayCold = .01f;
     public float nightCold = .05f;
     public float warmAmount = .01f;
@@ -22,7 +22,6 @@ public class Freezer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coldAmount = 100;
         mainCamera = Camera.main;
         frost = mainCamera.GetComponent<FrostEffect>();
         frost.FrostAmount = 0;
@@ -42,7 +41,7 @@ public class Freezer : MonoBehaviour
                 if (clock.isDay && frost.FrostAmount > 0)
                 {
 
-                    coldAmount += warmAmount;
+                    coldAmount += 10 * warmAmount;
                     frost.FrostAmount -= warmAmount;
                     if (frost.FrostAmount < 0)
                         frost.FrostAmount = 0;
@@ -54,13 +53,13 @@ public class Freezer : MonoBehaviour
                 {
                     if (!clock.isDay)
                     {
-                        coldAmount -= nightCold;
+                        coldAmount -= 10 * nightCold;
                         if (frost.FrostAmount < .4f)
                             frost.FrostAmount += nightCold;
                     }
                     else
                     {
-                        coldAmount -= dayCold;
+                        coldAmount -= 10 * dayCold;
                         if (frost.FrostAmount < .4f)
                             frost.FrostAmount += dayCold;
                     }
