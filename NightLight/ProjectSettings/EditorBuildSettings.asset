@@ -24,9 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Day1Dream.unity
     guid: cc64349398823a740a4db7fcd698c0b2
   - enabled: 1
-    path: Assets/Scenes/Day2.unity
+    path: Assets/Scenes/Day2_Previous.unity
     guid: 6f37edd132fd7004a8e426f3823127ca
   - enabled: 1
     path: Assets/Scenes/Day2Dream.unity
     guid: 2e6f0b136e7d4ec4c820653f40523c2d
+  - enabled: 1
+    path: Assets/Scenes/Day2.unity
+    guid: 9fd1cc2fb8eb3904181cfcca874994dc
   m_configObjects: {}
