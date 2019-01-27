@@ -9,6 +9,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
+    public bool DoorCanOpen;
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
@@ -30,6 +31,9 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     {
         if(PlayerInventory["Day1Key"])
         {
+            StartCoroutine(DoorOpenDuringTime());
+        }
+        else if(DoorCanOpen == true){
             StartCoroutine(DoorOpenDuringTime());
         }
         else

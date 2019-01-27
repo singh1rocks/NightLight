@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActualDoor: {fileID: 1096679429650100314}
+  DoorCanOpen: 0
 --- !u!65 &7666306638152089370
 BoxCollider:
   m_ObjectHideFlags: 0
