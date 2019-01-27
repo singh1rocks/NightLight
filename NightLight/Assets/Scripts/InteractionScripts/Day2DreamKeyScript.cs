@@ -22,6 +22,7 @@ public class Day2DreamKeyScript : MonoBehaviour, Iinteractable
     public void doPlayerInteraction()
     {
         PlayerInventory["Day2DreamKey"] = true;
+        gameObject.GetComponent<AudioSource>().Play();
         txtDisplay.DisplayText("Another key. Cool...");
         gameObject.SetActive(false);
     }

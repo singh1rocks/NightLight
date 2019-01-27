@@ -63,6 +63,7 @@ public class KitchenDoorScript : MonoBehaviour, Iinteractable
     }
     public void OpenCombDoor()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         StartCoroutine(DoorOpenDuringTime());
         PlayerInventory["KitchenDoorOpened"] = true;
     }

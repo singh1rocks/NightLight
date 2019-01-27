@@ -23,6 +23,7 @@ public class Day1KeyScript : MonoBehaviour, Iinteractable
     {
         PlayerInventory["Day1Key"] = true;
         txtDisplay.DisplayText("A key. Cool...");
+        gameObject.GetComponent<AudioSource>().Play();
         gameObject.SetActive(false);
     }
 
