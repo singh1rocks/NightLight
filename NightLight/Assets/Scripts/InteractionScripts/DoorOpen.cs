@@ -10,6 +10,7 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     Dictionary<string, bool> PlayerInventory;
     TextDisplay txtDisplay;
     public bool DoorCanOpen;
+    bool isOpened;
     void Start()
     {
         txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
