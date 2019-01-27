@@ -10,6 +10,7 @@ public class GeneratorScript : MonoBehaviour, Iinteractable
     float AngleToTurn = 150.0f;
     bool isUsed = false;
     LevelLoader LL;
+    GameObject lights;
     public void doPlayerInteraction()
     {
         if(!isUsed)
@@ -17,6 +18,8 @@ public class GeneratorScript : MonoBehaviour, Iinteractable
             StartCoroutine(StartRotateTheLever());
             isUsed = true;
             LL.CompleteLevel();
+            //turn on lights.
+            lights.SetActive(true);
         }
 
     }
@@ -25,6 +28,7 @@ public class GeneratorScript : MonoBehaviour, Iinteractable
     void Start()
     {
         LL = GameObject.Find("gameManager").GetComponent<LevelLoader>();
+        lights = GameObject.Find("LightsToTurnOn");
     }
 
     IEnumerator StartRotateTheLever()
