@@ -8,13 +8,13 @@ public class DoorOpen : MonoBehaviour, Iinteractable
     [SerializeField]
     GameObject ActualDoor;
     Dictionary<string, bool> PlayerInventory;
-    TextDisplay txtDisplay;
+    VoiceController VC;
     AudioSource AS;
     public bool DoorCanOpen;
-    bool isOpened;
+    public bool isOpened;
     void Start()
     {
-        txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
         //StartCoroutine(DoorOpenDuringTime());
@@ -40,42 +40,66 @@ public class DoorOpen : MonoBehaviour, Iinteractable
         else if (PlayerInventory["Day1Key"])
         {
             AS.Play();
+
             if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
                 StartCoroutine(DoorOpenDuringTime());
+            }
             else
                 StartCoroutine(DoorCloseDuringTime());
         }
         else if (PlayerInventory["Day2Key"])
         {
             AS.Play();
+
             if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
                 StartCoroutine(DoorOpenDuringTime());
+
+            }
+            else
+                StartCoroutine(DoorCloseDuringTime());
+        }
+        else if (PlayerInventory["Day2DreamKey"])
+        {
+            AS.Play();
+
+            if (!isOpened)
+            {
+                VC.PlayVoice(VC.FreezingClip);
+                StartCoroutine(DoorOpenDuringTime());
+            }
             else
                 StartCoroutine(DoorCloseDuringTime());
         }
         else
         {
             //Debug.Log("asd");
-            txtDisplay.DisplayText("I need a key to open this door.");
+            //txtDisplay.DisplayText("I need a key to open this door.");
+            VC.PlayVoice(VC.NeedAKeyClip);
         }
     }
 
     IEnumerator DoorOpenDuringTime()
     {
+        isOpened = true;
         for (float angle = 0.0f; angle < 120.0f; angle += 5.0f)
         {
             ActualDoor.transform.Rotate(new Vector3(0.0f, 5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
-        isOpened = true;
+        
     }
     IEnumerator DoorCloseDuringTime()
     {
+        isOpened = false;
+
         for (float angle = 0.0f; angle < 120.0f; angle += 5.0f)
         {
             ActualDoor.transform.Rotate(new Vector3(0.0f, -5.0f, 0.0f));
             yield return new WaitForSeconds(0.05f);
         }
-        isOpened = false;
     }
 }

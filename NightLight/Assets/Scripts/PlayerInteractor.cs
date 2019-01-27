@@ -20,13 +20,16 @@ public class PlayerInteractor : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            Iinteractable doScript = hit.transform.GetComponent<Iinteractable>();
+            Iinteractable[] doScripts = hit.transform.GetComponents<Iinteractable>();
             //check if it is interactible, and the player is interacting with it.
-            if (doScript != null && Input.GetKeyDown(KeyCode.F))
+            if (doScripts != null && Input.GetKeyDown(KeyCode.F))
             {
                 //if player is not frozen
                 if (freeze != null && !freeze.isDead)
-                    doScript.doPlayerInteraction();
+                    foreach (Iinteractable i in doScripts)
+                    {
+                        i.doPlayerInteraction();
+                    }
             }
         }
     }

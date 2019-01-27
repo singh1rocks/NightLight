@@ -5,11 +5,13 @@ using UnityEngine;
 public class Day2DreamKeyScript : MonoBehaviour, Iinteractable
 {
     Dictionary<string, bool> PlayerInventory;
-    TextDisplay txtDisplay;
+    //TextDisplay txtDisplay;
+    VoiceController VC;
 
     void Start()
     {
-        txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
+        //txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
     }
@@ -22,8 +24,10 @@ public class Day2DreamKeyScript : MonoBehaviour, Iinteractable
     public void doPlayerInteraction()
     {
         PlayerInventory["Day2DreamKey"] = true;
-        gameObject.GetComponent<AudioSource>().Play();
-        txtDisplay.DisplayText("Another key. Cool...");
+        //gameObject.GetComponent<AudioSource>().Play();
+        VC.PlayVoice(VC.PickThingsClip);
+        //txtDisplay.DisplayText("Another key. Cool...");
+        VC.PlayVoice(VC.HandyKeyClip);
         gameObject.SetActive(false);
     }
 
