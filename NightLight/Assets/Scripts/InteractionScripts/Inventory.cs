@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         PlayerItems.Add("Day1Key", false);
+        PlayerItems.Add("Day2Key", false);
         PlayerItems.Add("Day2DreamKey", false);
         PlayerItems.Add("Day1MatchBox", false);
         PlayerItems.Add("KitchenDoorOpened", false);

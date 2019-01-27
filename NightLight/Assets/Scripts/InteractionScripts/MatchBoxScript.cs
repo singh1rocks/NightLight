@@ -5,11 +5,13 @@ using UnityEngine;
 public class MatchBoxScript : MonoBehaviour, Iinteractable
 {
     Dictionary<string, bool> PlayerInventory;
-    TextDisplay txtDisplay;
+    VoiceController VC;
+    //TextDisplay txtDisplay;
 
     void Start()
     {
-        txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
+        //txtDisplay = GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>();
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
         //PlayerInventory =  GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory>().PlayerItems;
         PlayerInventory = GameObject.Find("gameManager").GetComponent<Inventory>().PlayerItems;
     }
@@ -23,7 +25,8 @@ public class MatchBoxScript : MonoBehaviour, Iinteractable
     {
         gameObject.GetComponent<AudioSource>().Play();
         PlayerInventory["Day1MatchBox"] = true;
-        txtDisplay.DisplayText("A Match box. Cool, maybe I can light the fireplace now...");
+        VC.PlayVoice(VC.WonderWhoClip);
+        //txtDisplay.DisplayText("A Match box. Cool, maybe I can light the fireplace now...");
         gameObject.SetActive(false);
     }
 }

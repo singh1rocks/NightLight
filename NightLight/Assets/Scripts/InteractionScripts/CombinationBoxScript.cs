@@ -12,12 +12,13 @@ public class CombinationBoxScript : MonoBehaviour
     public Text Box2;
     public Text Box3;
     public GameObject CombDoor;
+    VoiceController VC;
 
     [SerializeField]
     private string Password = "656";
     void Start()
     {
-        
+        VC = GameObject.FindGameObjectWithTag("Player").GetComponent<VoiceController>();
     }
 
     // Update is called once per frame
@@ -36,10 +37,13 @@ public class CombinationBoxScript : MonoBehaviour
             if (Box1.text + Box2.text + Box3.text == Password)
             {
                 CombDoor.GetComponent<KitchenDoorScript>().OpenCombDoor();
-                gameObject.SetActive(false);
+                VC.PlayVoice(VC.ItWorkedClip);
             }
             else
-                GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>().DisplayText("I don't think it's correct...");
+            {
+                VC.PlayVoice(VC.QuiteRightClip);
+            }
+            gameObject.SetActive(false);    //GameObject.FindGameObjectWithTag("TextDisplay").GetComponent<TextDisplay>().DisplayText("I don't think it's correct...");
         }
 
     }

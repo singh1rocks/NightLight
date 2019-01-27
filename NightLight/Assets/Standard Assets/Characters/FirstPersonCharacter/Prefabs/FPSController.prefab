@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8200000}
   - component: {fileID: 3758538608622347047}
   - component: {fileID: 2495793484405516781}
+  - component: {fileID: 5159646761749426338}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -303,6 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a42fedac6585441afd4163461362aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coldAmount: 20
+  isDead: 0
   dayCold: 0.01
   nightCold: 0.05
   warmAmount: 0.01
@@ -320,11 +323,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a42fedac6585441afd4163461362aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coldAmount: 20
+  isDead: 0
   dayCold: 0.01
   nightCold: 0.05
   warmAmount: 0.01
   deathOn: 1
   frostInterval: 5
+--- !u!114 &5159646761749426338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fb6bfcba023554c88f2582b2a378f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireplaceClip: {fileID: 8300000, guid: 106b8f3a537f3924299375c043c24efa, type: 3}
+  FreezingClip: {fileID: 8300000, guid: ab9209712410a8c4c87cf450ca88350a, type: 3}
+  GotobedClip: {fileID: 8300000, guid: 2d170afdc595a254990dd253f0985ef1, type: 3}
+  HandyKeyClip: {fileID: 8300000, guid: 27b156fb865a36b489548f989e44ea2e, type: 3}
+  ItWorkedClip: {fileID: 8300000, guid: 62ee3314ca00be4409f171e1e97814b4, type: 3}
+  NeedAKeyClip: {fileID: 8300000, guid: bad3faac9a5336d44bf084623e9ab2ba, type: 3}
+  QuiteRightClip: {fileID: 8300000, guid: 1d1609dc6feb6ca4ab42775333fd4774, type: 3}
+  SaveFromColdClip: {fileID: 8300000, guid: 6025361112a93464c8bd0eee5e518b34, type: 3}
+  WhereAmIClip: {fileID: 8300000, guid: fc7f4cdd51c1fb04ba0682fd58fe221c, type: 3}
+  WonderWhoClip: {fileID: 8300000, guid: 9cc75d943a39a604ab106415eafc661c, type: 3}
+  PickThingsClip: {fileID: 8300000, guid: 4cd7f0b74fb05974094a1f41574ebaa3, type: 3}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
