@@ -26,7 +26,7 @@ public class Freezer : MonoBehaviour
         mainCamera = Camera.main;
         frost = mainCamera.GetComponent<FrostEffect>();
         frost.FrostAmount = 0;
-        clock = GameObject.Find("Clock").GetComponent<DayNightClock>();
+        clock = GameObject.Find("gameManager").GetComponent<DayNightClock>();
         lastTime = clock.timeOfDay;
     }
 

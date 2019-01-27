@@ -24,14 +24,13 @@ public class TextDisplay : MonoBehaviour
     {
         //Debug.Log(textToPut);
         //StopCoroutine(AnimateText(textToPut, duration));
-
+        
         StartCoroutine(AnimateText(textToPut, duration));
         ShowEverything();
     }
     IEnumerator AnimateText(string textToPut, float duration)
     {
         string currentText = "";
-        Debug.Log(textToPut);
         TextToPut = textToPut;
         int i = 0;
 
