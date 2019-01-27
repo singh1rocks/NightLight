@@ -20,7 +20,7 @@ public class FireplaceLit : MonoBehaviour, Iinteractable
         {
             FireParticle.GetComponent<ParticleSystem>().Play();
             txtDisplay.DisplayText("Warmth, I think that's all I need right now...");
-
+            
         }
         else
             txtDisplay.DisplayText("I need something to light the fireplace...");

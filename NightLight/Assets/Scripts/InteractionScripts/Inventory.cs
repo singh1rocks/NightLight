@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
         PlayerItems.Add("Day1Key", false);
         PlayerItems.Add("Day2DreamKey", false);
         PlayerItems.Add("Day1MatchBox", false);
+        PlayerItems.Add("KitchenDoorOpened", false);
     }
 
     // Update is called once per frame
