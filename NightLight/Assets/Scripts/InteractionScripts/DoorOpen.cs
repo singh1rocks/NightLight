@@ -42,6 +42,12 @@ public class DoorOpen : MonoBehaviour, Iinteractable
             else
                 StartCoroutine(DoorCloseDuringTime());
         }
+        else if (PlayerInventory["Day2Key"])
+        {
+            if (!isOpened)
+                StartCoroutine(DoorOpenDuringTime());
+            else
+                StartCoroutine(DoorCloseDuringTime());
         else
         {
             //Debug.Log("asd");
